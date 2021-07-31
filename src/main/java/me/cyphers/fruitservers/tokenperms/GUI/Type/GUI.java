@@ -1,9 +1,9 @@
-package me.Scyy.Util.GenericJavaPlugin.GUI.Type;
+package me.cyphers.fruitservers.tokenperms.GUI.Type;
 
-import me.Scyy.Util.GenericJavaPlugin.Plugin;
+import me.cyphers.fruitservers.tokenperms.Plugin;
+import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
-import org.bukkit.inventory.InventoryView;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -26,9 +26,8 @@ public interface GUI<T extends Event> {
     /**
      * Open the GUI for a given player
      * @param player the player to view the GUI
-     * @return the InventoryView if the GUI is an inventory based GUI or null if not applicable (e.g. Book)
      */
-    @Nullable InventoryView open(Player player);
+    void open(Player player);
 
     /**
      * Gets the GUI that was open before this one, or null if opened for the first time
@@ -49,7 +48,7 @@ public interface GUI<T extends Event> {
      * Gets the player that will be or is currently viewing this GUI
      * @return the player
      */
-    @NotNull Player getPlayer();
+    @NotNull HumanEntity getPlayer();
 
     /**
      * Determines if the GUI should be closed on the next tick instead of opening a new GUI

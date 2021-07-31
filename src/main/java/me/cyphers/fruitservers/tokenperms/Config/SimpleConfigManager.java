@@ -1,13 +1,14 @@
-package me.Scyy.Util.GenericJavaPlugin.Config;
+package me.cyphers.fruitservers.tokenperms.Config;
 
-import me.Scyy.Util.GenericJavaPlugin.Plugin;
+import me.cyphers.fruitservers.tokenperms.Plugin;
 
 public class SimpleConfigManager implements ConfigManager {
 
     private final Plugin plugin;
 
-    private final PlayerMessenger playerMessenger;
     private final Settings settings;
+    private final PlayerMessenger playerMessenger;
+    private final TokenScheduleData tokenScheduleData;
 
     /**
      * Load all configs in
@@ -15,8 +16,9 @@ public class SimpleConfigManager implements ConfigManager {
      */
     public SimpleConfigManager(Plugin plugin) {
         this.plugin = plugin;
-        this.playerMessenger = new PlayerMessenger(this);
         this.settings = new Settings(this);
+        this.playerMessenger = new PlayerMessenger(this);
+        this.tokenScheduleData = new TokenScheduleData(this);
     }
 
     /**
@@ -42,6 +44,10 @@ public class SimpleConfigManager implements ConfigManager {
      */
     public Settings getSettings() {
         return settings;
+    }
+
+    public TokenScheduleData getTokenScheduleData() {
+        return tokenScheduleData;
     }
 
     @Override

@@ -1,8 +1,12 @@
-main:
-name:
-version:
+main: me.Scyphers.TokenPerms.Plugin
+name: TokenPerms
+version: 1.5.8
 api-version: 1.16
 author: Scyphers
+depend:
+  - Vault
 commands:
-  admin:
-    description: "Reloads the plugin"
+  tokenperm:
+    description: "For creating and monitoring token usage"
+    aliases:
+      - "tperm"

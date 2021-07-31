@@ -1,0 +1,79 @@
+# Define your tokens here. A few examples have been provided
+# fly
+#   # If the token can be used. No messages are sent if this is false
+#   enabled: true
+#   # The permission to give to the user when they use that token
+#   permission: "essentials.fly"
+#   # The item type for the token
+#   item: PHANTOM_MEMBRANE
+#   # The display name for the token.
+#   name: "&r&3%duration% &6Fly Token"
+#   # The lore of the token. Note that the duration of the token is added to the start of the list using the following format: "&r&8duration: %duration%"
+#   lore:
+#     - "&3Soar &bhigh &3into the &bskies!"
+#   # If the token should have a glow effect
+#   hasGlow: true
+#   # Commands that are run if the token is paused/ended while the player is online
+#   disabledOnlineCommands:
+#     - "fly %player% disable"
+#   # Commands that are run when the player rejoins after being offline when the token ended
+#   disabledRejoinCommands: []
+# If a message is left as an empty string ("") or empty list ([]) then no message(s) are sent
+
+# The name of the token put in config will be what you refer to for commands
+# e.g. having 'fly' and 'god' as tokens will come up as 'fly' and 'god' for using commands
+tokens:
+
+  # Fly token. Uses Essentials permission. gives access to /fly
+  fly:
+    enabled: true
+    permission: "essentials.fly"
+    item: PHANTOM_MEMBRANE
+    name: "&6Fly Token"
+    lore:
+      - "&3Soar &bhigh &3into the &bskies!"
+    hasGlow: true
+    disabledOnlineCommands:
+      - "fly %player% disable"
+    disabledRejoinCommands:
+      - "spawn %player%"
+
+  # God token. Uses Essentials permission. gives access to /god
+  god:
+    enabled: true
+    permission: "essentials.god"
+    item: GOLD_NUGGET
+    name: "&6God Token"
+    lore:
+      - "&3A nugget from the &fFruit&6Gods&3..."
+    hasGlow: true
+    disabledOnlineCommands:
+      - "god %player% disable"
+    disabledRejoinCommands: []
+
+  # Speed token. Uses Essentials permission. gives access to /speed while on the ground
+  speed:
+    enabled: true
+    permission: "essentials.speed"
+    item: SPECTRAL_ARROW
+    name: "&6Speed Token"
+    lore:
+      - "&bGotta go &b&lfast!"
+    hasGlow: true
+    disabledOnlineCommands:
+      - "speed walk 1 %player%"
+      - "speed fly 1 %player%"
+    disabledRejoinCommands: []
+
+# A list of worlds where the tokens are permitted to be active in
+worldWhitelist:
+  - "Skyblock"
+  - "Spawn"
+
+
+
+
+
+
+
+

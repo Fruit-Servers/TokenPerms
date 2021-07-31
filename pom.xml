@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>me.Scyy.Util.GenericJavaPlugin</groupId>
-    <artifactId>GenericJavaPlugin</artifactId>
-    <version>1.0</version>
+    <groupId>me.Scyphers.TokenPerms</groupId>
+    <artifactId>TokenPerms</artifactId>
+    <version>1.5.8</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -35,13 +35,17 @@
             <id>bungeecord-repo</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
     </repositories>
 
     <dependencies>
         <dependency>
-            <groupId>com.destroystokyo.paper</groupId>
+            <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
-            <version>1.16.4-R0.1-SNAPSHOT</version>
+            <version>1.17-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -49,6 +53,12 @@
             <artifactId>bungeecord-api</artifactId>
             <version>1.16-R0.4-SNAPSHOT</version>
             <type>javadoc</type>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.MilkBowl</groupId>
+            <artifactId>VaultAPI</artifactId>
+            <version>1.7</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

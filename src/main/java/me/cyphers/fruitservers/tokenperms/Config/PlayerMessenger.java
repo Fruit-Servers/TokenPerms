@@ -1,4 +1,4 @@
-package me.Scyy.Util.GenericJavaPlugin.Config;
+package me.cyphers.fruitservers.tokenperms.Config;
 
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.ChatMessageType;

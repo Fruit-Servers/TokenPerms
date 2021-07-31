@@ -1,7 +1,7 @@
-package me.Scyy.Util.GenericJavaPlugin.Config;
+package me.cyphers.fruitservers.tokenperms.Config;
 
 import com.google.common.base.Charsets;
-import me.Scyy.Util.GenericJavaPlugin.Plugin;
+import me.cyphers.fruitservers.tokenperms.Plugin;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 

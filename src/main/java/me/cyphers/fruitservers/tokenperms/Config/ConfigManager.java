@@ -1,6 +1,6 @@
-package me.Scyy.Util.GenericJavaPlugin.Config;
+package me.cyphers.fruitservers.tokenperms.Config;
 
-import me.Scyy.Util.GenericJavaPlugin.Plugin;
+import me.cyphers.fruitservers.tokenperms.Plugin;
 
 /**
  * Manager for a collection of config files. Recommended to provide methods for getting each of the ConfigFiles it manages

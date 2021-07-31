@@ -1,13 +1,19 @@
-package me.Scyy.Util.GenericJavaPlugin.GUI.Type;
+package me.cyphers.fruitservers.tokenperms.GUI.Type;
 
-import me.Scyy.Util.GenericJavaPlugin.Plugin;
+import me.cyphers.fruitservers.tokenperms.Plugin;
+import me.cyphers.fruitservers.tokenperms.Util.ItemBuilder;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.*;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.InventoryHolder;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -44,14 +50,14 @@ public abstract class InventoryGUI implements InventoryHolder, GUI<InventoryClic
     protected final String name;
 
     /**
-     * If the GUI should close on the next tick instead of reopening a new GUI. Change this in {@link }
-     */
-    protected boolean shouldClose;
-
-    /**
      * Size of the GUI, also found from {@code inventoryItems.length}
      */
     protected final int size;
+
+    /**
+     * If the GUI should close on the next tick rather than open a new GUI
+     */
+    protected boolean close;
 
     /**
      * @param lastGUI The GUI that was open before this one, or <code>null</code> if opened for the first time
@@ -63,9 +69,9 @@ public abstract class InventoryGUI implements InventoryHolder, GUI<InventoryClic
         this.lastGUI = lastGUI;
         this.plugin = plugin;
         this.player = player;
-        this.name = name;
+        this.name = ChatColor.translateAlternateColorCodes('&', name);
         this.size = size;
-        this.inventory = Bukkit.createInventory(null, size, name);
+        this.inventory = Bukkit.createInventory(this, size, this.name);
         this.inventoryItems = inventory.getContents();
     }
 
@@ -73,18 +79,9 @@ public abstract class InventoryGUI implements InventoryHolder, GUI<InventoryClic
     public abstract @NotNull GUI<?> handleInteraction(InventoryClickEvent event);
 
     @Override
-    public @Nullable InventoryView open(Player player) {
+    public void open(Player player) {
         inventory.setContents(inventoryItems);
-        return player.openInventory(inventory);
-    }
-
-    /**
-     * Utility method for saving time when registering listeners for the GUI.<br>
-     * All subclasses of {@link InventoryGUI} will use this listener for triggering their interaction handlers
-     * @return the listener for this GUI and all GUI subclasses for it
-     */
-    public static Listener getListener() {
-        return new InventoryListener();
+        player.openInventory(inventory);
     }
 
     @Override
@@ -107,6 +104,10 @@ public abstract class InventoryGUI implements InventoryHolder, GUI<InventoryClic
         return inventory;
     }
 
+    public static Listener getListener() {
+        return new InventoryListener();
+    }
+
     public ItemStack[] getInventoryItems() {
         return inventoryItems;
     }
@@ -119,9 +120,15 @@ public abstract class InventoryGUI implements InventoryHolder, GUI<InventoryClic
         return size;
     }
 
-    @Override
-    public boolean shouldClose() {
-        return shouldClose;
+    protected void fill() {
+        this.fill(new ItemBuilder(Material.GRAY_STAINED_GLASS_PANE).name(" ").build());
+    }
+
+    protected void fill(ItemStack item) {
+        for (int i = 0; i < size; i++) {
+            inventoryItems[i] = item;
+        }
+
     }
 
     /**
@@ -129,6 +136,11 @@ public abstract class InventoryGUI implements InventoryHolder, GUI<InventoryClic
      * @return if the player can perform actions in their inventory
      */
     public abstract boolean allowPlayerInventoryEdits();
+
+    @Override
+    public boolean shouldClose() {
+        return this.close;
+    }
 
     private static class InventoryListener implements Listener {
         @EventHandler(priority = EventPriority.HIGHEST)
@@ -144,14 +156,15 @@ public abstract class InventoryGUI implements InventoryHolder, GUI<InventoryClic
                 return;
             }
 
+            // Handle the interact event and open the new inventory
+            GUI<?> newGUI = oldGUI.handleInteraction(event);
+
             // If the new GUI should close instead of trying to handle new interactions
             if (oldGUI.shouldClose()) {
-                Bukkit.getScheduler().runTask(oldGUI.plugin, () -> event.getWhoClicked().closeInventory());
+                Bukkit.getScheduler().runTask(oldGUI.plugin, () -> oldGUI.getPlayer().closeInventory());
                 return;
             }
 
-            // Handle the interact event and open the new inventory
-            GUI<?> newGUI = oldGUI.handleInteraction(event);
             Bukkit.getScheduler().runTask(oldGUI.plugin, () -> newGUI.open(oldGUI.getPlayer()));
         }
     }

@@ -1,7 +1,9 @@
-package me.Scyy.Util.GenericJavaPlugin.Util;
+package me.cyphers.fruitservers.tokenperms.Util;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -158,7 +160,7 @@ public class ItemBuilder {
     }
 
     /**
-     * Sets the item to be unbreakble
+     * Sets the item to be unbreakable
      * @param showFlag whether to show that the item is unbreakable
      * @return The Builder instance
      */
@@ -168,6 +170,29 @@ public class ItemBuilder {
         if (showFlag) this.itemMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         return this;
 
+    }
+
+    /*  Flags and Attributes  */
+
+    /**
+     * Adds an item flag to the item
+     * @param flag the flag(s) to be added
+     * @return the Builder instance
+     */
+    public ItemBuilder flag(ItemFlag... flag) {
+        this.itemMeta.addItemFlags(flag);
+        return this;
+    }
+
+    /**
+     * Adds an attribute to the item
+     * @param attribute the Attribute to add
+     * @param modifier the modifier for the Attribute
+     * @return the Builder instance
+     */
+    public ItemBuilder attribute(Attribute attribute, AttributeModifier modifier) {
+        this.itemMeta.addAttributeModifier(attribute, modifier);
+        return this;
     }
 
     /**

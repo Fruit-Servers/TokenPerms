@@ -1,0 +1,60 @@
+prefix: "&7[&6Fruit&3Tokens&7]&r&f "
+
+errorMessages:
+  commandNotFound: "&cUnknown command"
+  invalidCommandLength: "&cInvalid command length"
+  invalidTimeUnit: "&cInvalid time unit - valid units are 'seconds', 'minutes', 'hours', 'days'"
+  invalidNumber: "&cNot a valid number, expected integer"
+  playerNotFound: "&cCould not find a player with that name"
+  mustBePlayer: "&cYou must be a player to run that command"
+  tokenNotFound: "Could not find a token with that name"
+
+tokenMessages:
+  tokenNotFound: "&cCould not find a token with name: %token%"
+  tokenAddedToInventory: "&aYou have received a &6%token% &atoken!"
+  initialCheckMessage: "[NO_PREFIX]&6--====== &aActive Tokens for &3%player% &6======--"
+  checkMessage: "[NO_PREFIX]&a%token%&7: %timeLeft%"
+  noActiveTokensPlayer: "&6%player% &ahas no active tokens!"
+  noActiveTokensList: "&3There are no active tokens!"
+  initialListMessage: "[NO_PREFIX]&6--====== &aActive Tokens &6======--"
+  listMessage: "[NO_PREFIX]&3%player% &7- &a%token%&7: %timeLeft%"
+  noScheduleFound: "&cCould not find a &6%token% &ctoken active for &6%player%"
+  tokenCancelled: "&aYou have ended the &6%token% token &afor &6%player%"
+
+  invalidTokenForWorld: "&cYou cannot use a token here"
+
+  tokenUsed: "&aYou have used a &6%token% &atoken!"
+  tokenDenied: "&cYou have cancelled using a &6%token% &ctoken"
+
+  broadcastTokenUsed: "&6%player% &ahas used a &6%token% &atoken"
+
+  tokensPausedAndDisabled: "&cYou have moved to an area that doesn't permit use of tokens. Your tokens have been paused and disabled"
+  tokensResumed: "&aYour tokens have been resumed!"
+
+# These messages are sent when the player only has 60 seconds and 10 seconds left for their token
+# format is [tokenName]warning1 or [tokenName]warning2
+# messageWhenActivated is the message when activated
+# warning1 is the minute warning
+# warning2 is the 10 second warning
+# Use the following as a guide
+# flymessageWhenActivated: "&aYou now have access to /fly"
+# flywarning1: "&aYou have a minute left for your fly token"
+# flywarning2: "&aYou have 10 seconds left for your fly token"
+#
+# Leave a message as an empty string ("") for no message to be sent
+tokenUseMessages:
+  flymessageWhenActivated: "&aYou now have access to /fly"
+  flywarning1: "&aYou only have a minute left for your fly token!"
+  flywarning2: "&aYou only have 10 seconds left for your fly token!"
+  godmessageWhenActivated: "&aYou now have access to /god"
+  godwarning1: "&aYou only have a minute left for your god token!"
+  godwarning2: "&aYou only have 10 seconds left for your god token!"
+  speedmessageWhenActivated: "&aYou now have access to /speed [value]"
+  speedwarning1: "&aYou only have a minute left for your speed token!"
+  speedwarning2: "&aYou only have 10 seconds left for your speed token!"
+  sellhandmessageWhenActivated: "&aYou now have access to /sellhand"
+  sellhandwarning1: "&aYou only have a minute left for your sellhand token!"
+  sellhandwarning2: "&aYou only have 10 seconds left for your sellhand token!"
+
+
+
