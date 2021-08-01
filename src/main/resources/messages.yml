@@ -21,7 +21,7 @@ tokenMessages:
   noScheduleFound: "&cCould not find a &6%token% &ctoken active for &6%player%"
   tokenCancelled: "&aYou have ended the &6%token% token &afor &6%player%"
 
-  invalidTokenForWorld: "&cYou cannot use a token here"
+  invalidWorldForToken: "&cYou cannot use a token here"
 
   tokenUsed: "&aYou have used a &6%token% &atoken!"
   tokenDenied: "&cYou have cancelled using a &6%token% &ctoken"
