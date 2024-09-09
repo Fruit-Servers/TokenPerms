@@ -136,7 +136,7 @@ public class TokenRegister {
 
             // Run the commands to remove if present
             List<String> commandsToRun = plugin.getSettings().getTokenDisabledPlayerOnlineCommands(tokenName, player.getName());
-            if (commandsToRun.size() != 0) {
+            if (!commandsToRun.isEmpty()) {
                 CommandSender console = Bukkit.getConsoleSender();
                 for (String command : commandsToRun) {
                     Bukkit.dispatchCommand(console, command);

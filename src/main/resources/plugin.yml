@@ -1,4 +1,4 @@
-main: me.Scyphers.TokenPerms.Plugin
+main: me.cyphers.fruitservers.tokenperms.Plugin
 name: TokenPerms
 version: 1.5.8
 api-version: 1.16
