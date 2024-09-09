@@ -27,7 +27,8 @@ public class CancelCommand extends CommandExecutor {
 
         OfflinePlayer player = Bukkit.getOfflinePlayer(args[1]);
         if (!player.hasPlayedBefore()) {
-            pm.msg(sender, "errorMessages.playerNotFound"); return;
+            pm.msg(sender, "errorMessages.playerNotFound");
+            return;
         }
 
         List<TokenSchedule> schedules = getPlugin().getTokenRegister().getSchedules(player.getUniqueId());

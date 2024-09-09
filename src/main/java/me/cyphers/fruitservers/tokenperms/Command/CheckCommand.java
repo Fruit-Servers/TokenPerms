@@ -31,7 +31,7 @@ public class CheckCommand extends TargettedCommandExecutor {
             return;
         }
 
-        Player player = (Player) sender;
+        Player player = ( Player ) sender;
 
         // Get the list of schedules for the player
         List<TokenSchedule> schedules = getPlugin().getTokenRegister().getSchedules(player.getUniqueId());
@@ -62,7 +62,8 @@ public class CheckCommand extends TargettedCommandExecutor {
 
         OfflinePlayer player = Bukkit.getOfflinePlayer(args[1]);
         if (!player.hasPlayedBefore()) {
-            pm.msg(sender, "errorMessages.playerNotFound"); return;
+            pm.msg(sender, "errorMessages.playerNotFound");
+            return;
         }
 
         // Get the list of schedules for the player

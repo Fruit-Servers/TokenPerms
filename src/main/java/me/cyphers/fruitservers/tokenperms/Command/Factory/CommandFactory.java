@@ -1,7 +1,5 @@
 package me.cyphers.fruitservers.tokenperms.Command.Factory;
 
-import me.Scyphers.TokenPerms.Command.*;
-import me.Scyphers.fruitservers.tokenperms.Command.*;
 import me.cyphers.fruitservers.tokenperms.Command.*;
 import me.cyphers.fruitservers.tokenperms.Plugin;
 import org.bukkit.command.Command;
